@@ -1,0 +1,93 @@
+# Build directories
+build/
+build-*/
+out/
+install/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Compiler output
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Profiling and coverage
+*.gcov
+*.gcno
+*.gcda
+*.profdata
+*.profraw
+coverage/
+*.coverage
+
+# Package managers
+vcpkg_installed/
+conan_imports_manifest.txt
+conanbuildinfo.*
+conaninfo.txt
+graph_info.json
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+
+# Generated documentation
+docs/html/
+docs/latex/
+docs/generated/
+
+# Benchmark results
+benchmark_results/
+*.benchmark
+
+# Test output
+test_results/
+*.xml
+*.junit
+
+# OS specific
+.Trash/
+.nfs*
+
+# Custom build scripts output
+scripts/*.log
+
+# Data files (if generated)
+data/generated/
