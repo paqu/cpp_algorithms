@@ -23,19 +23,15 @@ option(BUILD_EXAMPLES "Build examples" ON)
 option(BUILD_BENCHMARKS "Build benchmarks" ON)
 
 # Library
-add_library(Algorithms
-    src/sorting/quick_sort.cpp
-    src/sorting/merge_sort.cpp
-    src/sorting/selection_sort.cpp
-    src/sorting/insertion_sort.cpp
-    src/sorting/heap_sort.cpp
-)
+add_library(Algorithms INTERFACE)
 
 target_include_directories(Algorithms
-    PUBLIC 
+    INTERFACE 
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
 )
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
 
-target_compile_features(Algorithms PUBLIC cxx_std_17)
+target_compile_features(Algorithms INTERFACE cxx_std_17)
 
