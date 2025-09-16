@@ -91,3 +91,4 @@ scripts/*.log
 
 # Data files (if generated)
 data/generated/
+.cache
