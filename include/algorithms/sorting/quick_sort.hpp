@@ -41,7 +41,7 @@ void quick_sort_impl(std::vector<T> &arr, int left, int right, Compare comp) {
 }
 
 template <typename T, typename Compare = std::less<T>>
-std::vector<T> quick_sort(std::vector<T> &arr, Compare comp = Compare{}) {
+std::vector<T> quick_sort(const std::vector<T> &arr, Compare comp = Compare{}) {
     std::vector<T> result = arr;
     if (!arr.empty()) {
         quick_sort_impl(result, 0, static_cast<int>(result.size()) - 1, comp);
