@@ -20,10 +20,7 @@ This library is built following the **kata programming** approach - implementing
 
 **Sorting Algorithms:**
 - **Quick Sort** - Fully implemented with comprehensive tests
-  - Average: O(n log n), Worst: O(n²), Space: O(log n)
-  - Supports custom comparators
-  - Header-only implementation
-
+- **Insertion Sort** - Fully implemented with comprehensive tests
 ### 🚧 In Progress
 
 **Sorting Algorithms (Headers declared, implementations pending):**
