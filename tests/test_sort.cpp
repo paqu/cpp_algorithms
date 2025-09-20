@@ -1,8 +1,8 @@
 #include <algorithm>
 #include <algorithms/sorting/insertion_sort.hpp>
+#include <algorithms/sorting/merge_sort.hpp>
 #include <algorithms/sorting/quick_sort.hpp>
-// #include <algorithms/sorting/merge_sort.hpp>    // Add when implemented
-// #include <algorithms/sorting/selection_sort.hpp> // Add when implemented
+#include <algorithms/sorting/selection_sort.hpp>
 // #include <algorithms/sorting/heap_sort.hpp>      // Add when implemented
 #include <functional>
 #include <gtest/gtest.h>
@@ -24,8 +24,8 @@ using SortFunction =
 enum class SortAlgorithm {
     QuickSort,
     InsertionSort,
-    // MergeSort,     // Add when implemented
-    // SelectionSort, // Add when implemented
+    MergeSort,
+    SelectionSort,
     // HeapSort       // Add when implemented
 };
 
@@ -36,8 +36,10 @@ std::string AlgorithmName(SortAlgorithm algo) {
         return "QuickSort";
     case SortAlgorithm::InsertionSort:
         return "InsertionSort";
-    // case SortAlgorithm::MergeSort: return "MergeSort";
-    // case SortAlgorithm::SelectionSort: return "SelectionSort";
+    case SortAlgorithm::MergeSort:
+        return "MergeSort";
+    case SortAlgorithm::SelectionSort:
+        return "SelectionSort";
     // case SortAlgorithm::HeapSort: return "HeapSort";
     default:
         return "Unknown";
@@ -216,12 +218,15 @@ INSTANTIATE_TEST_SUITE_P(
         SortTestParam{SortAlgorithm::InsertionSort,
                       [](const std::vector<int> &v, auto comp) {
                           return algorithms::sorting::insertion_sort(v, comp);
-                      }}
-        // Add more algorithms here as you implement them:
-        // SortTestParam{SortAlgorithm::MergeSort,
-        //              [](const std::vector<int>& v, auto comp) {
-        //                  return algorithms::sorting::merge_sort(v, comp); }},
-        ),
+                      }},
+        SortTestParam{SortAlgorithm::MergeSort,
+                      [](const std::vector<int> &v, auto comp) {
+                          return algorithms::sorting::merge_sort(v, comp);
+                      }},
+        SortTestParam{SortAlgorithm::SelectionSort,
+                      [](const std::vector<int> &v, auto comp) {
+                          return algorithms::sorting::selection_sort(v, comp);
+                      }}),
     SortTestParamName{});
 
 // ============================================================================
@@ -318,6 +323,15 @@ INSTANTIATE_TEST_SUITE_P(
         StringSortTestParam{SortAlgorithm::InsertionSort,
                             [](const std::vector<std::string> &v, auto comp) {
                                 return algorithms::sorting::insertion_sort(
+                                    v, comp);
+                            }},
+        StringSortTestParam{SortAlgorithm::MergeSort,
+                            [](const std::vector<std::string> &v, auto comp) {
+                                return algorithms::sorting::merge_sort(v, comp);
+                            }},
+        StringSortTestParam{SortAlgorithm::SelectionSort,
+                            [](const std::vector<std::string> &v, auto comp) {
+                                return algorithms::sorting::selection_sort(
                                     v, comp);
                             }}),
     SortTestParamName{});
